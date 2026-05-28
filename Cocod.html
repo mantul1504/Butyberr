@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Butterfly Luxury Handmade</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ========================= */
+/* RESET */
+/* ========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* ========================= */
+/* BACKGROUND */
+/* ========================= */
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-10;
+}
+
+.glow{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.3;
+animation:float 10s infinite ease-in-out;
+}
+
+.glow:nth-child(1){
+width:400px;
+height:400px;
+background:#00e5ff;
+top:-100px;
+left:-100px;
+}
+
+.glow:nth-child(2){
+width:350px;
+height:350px;
+background:#7b2cff;
+bottom:-100px;
+right:-100px;
+animation-delay:2s;
+}
+
+.glow:nth-child(3){
+width:250px;
+height:250px;
+background:#ff00cc;
+top:40%;
+left:40%;
+animation-delay:4s;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(35px);
+}
+}
+
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(20px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+background:linear-gradient(45deg,#00e5ff,#7b2cff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#00e5ff;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 60px;
+}
+
+.hero-content{
+max-width:900px;
+animation:fadeUp 1s ease;
+}
+
+.hero-content h1{
+font-size:85px;
+line-height:1.1;
+margin-bottom:25px;
+font-weight:800;
+background:linear-gradient(45deg,#ffffff,#00e5ff,#7b2cff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-content p{
+font-size:20px;
+line-height:1.9;
+color:#ccc;
+margin-bottom:40px;
+}
+
+.hero-btns{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:16px 38px;
+border:none;
+border-radius:60px;
+font-weight:700;
+cursor:pointer;
+transition:0.4s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn-primary{
+background:linear-gradient(45deg,#00e5ff,#7b2cff);
+color:white;
+box-shadow:0 0 35px #00e5ff66;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 50px #00e5ffaa;
+}
+
+.btn-glass{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+color:white;
+}
+
+.btn-glass:hover{
+background:white;
+color:black;
+}
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+.section{
+width:90%;
+margin:auto;
+padding:100px 0;
+}
+
+.title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.title h2{
+font-size:55px;
+margin-bottom:15px;
+background:linear-gradient(45deg,#00e5ff,#7b2cff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.title p{
+color:#aaa;
+}
+
+/* ========================= */
+/* SEARCH */
+/* ========================= */
+
+.search{
+margin-bottom:50px;
+}
+
+.search input{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.05);
+color:white;
+outline:none;
+font-size:16px;
+}
+
+/* ========================= */
+/* GRID */
+/* ========================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+/* ========================= */
+/* CARD */
+/* ========================= */
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:30px;
+overflow:hidden;
+backdrop-filter:blur(20px);
+transition:0.5s;
+position:relative;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 45px #00e5ff33;
+border-color:#00e5ff;
+}
+
+.badge{
+position:absolute;
+top:18px;
+left:18px;
+padding:10px 18px;
+background:linear-gradient(45deg,#00e5ff,#7b2cff);
+border-radius:50px;
+font-size:12px;
+font-weight:700;
+z-index:5;
+}
+
+/* ========================= */
+/* SLIDER */
+/* ========================= */
+
+.slider{
+position:relative;
+overflow:hidden;
+height:320px;
+}
+
+.slides{
+display:flex;
+height:100%;
+transition:0.5s;
+}
+
+.slides img{
+width:100%;
+height:320px;
+object-fit:cover;
+flex-shrink:0;
+cursor:pointer;
+}
+
+.prev,
+.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:rgba(0,0,0,0.5);
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+
+.prev{
+left:10px;
+}
+
+.next{
+right:10px;
+}
+
+/* ========================= */
+/* CARD BODY */
+/* ========================= */
+
+.card-body{
+padding:28px;
+}
+
+.card-body h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:30px;
+font-weight:700;
+color:#00e5ff;
+margin-bottom:15px;
+}
+
+.desc{
+color:#ccc;
+line-height:1.8;
+margin-bottom:18px;
+}
+
+.rating{
+color:gold;
+margin-bottom:18px;
+}
+
+.qty,
+select{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:none;
+border-radius:15px;
+background:rgba(255,255,255,0.05);
+color:white;
+outline:none;
+}
+
+/* ========================= */
+/* ABOUT */
+/* ========================= */
+
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:50px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:30px;
+}
+
+.about-text h2{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.about-text p{
+line-height:2;
+color:#ccc;
+}
+
+/* ========================= */
+/* TESTIMONI */
+/* ========================= */
+
+.comment-form{
+max-width:700px;
+margin:auto;
+margin-bottom:50px;
+}
+
+.comment-form input,
+.comment-form textarea{
+width:100%;
+padding:18px;
+margin-bottom:15px;
+border:none;
+border-radius:18px;
+background:rgba(255,255,255,0.05);
+color:white;
+outline:none;
+}
+
+.comment-form textarea{
+resize:none;
+}
+
+.testi-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.testi{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.4s;
+}
+
+.testi:hover{
+transform:translateY(-8px);
+border-color:#00e5ff;
+}
+
+.testi h4{
+color:#00e5ff;
+margin-bottom:10px;
+}
+
+/* ========================= */
+/* CONTACT */
+/* ========================= */
+
+.contact{
+text-align:center;
+}
+
+.contact-box{
+max-width:750px;
+margin:auto;
+padding:50px;
+background:rgba(255,255,255,0.05);
+border-radius:35px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+/* ========================= */
+/* FLOATING */
+/* ========================= */
+
+.floating{
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:999;
+}
+
+.floating a{
+width:70px;
+height:70px;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#25D366;
+border-radius:50%;
+font-size:35px;
+color:white;
+text-decoration:none;
+box-shadow:0 0 35px #25D36699;
+}
+
+/* ========================= */
+/* FULLSCREEN */
+/* ========================= */
+
+.fullscreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+.fullscreen img{
+max-width:90%;
+max-height:90%;
+border-radius:30px;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:35px;
+font-size:45px;
+cursor:pointer;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+padding:40px;
+text-align:center;
+color:#888;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+/* ========================= */
+/* ANIMATION */
+/* ========================= */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+
+nav{
+padding:15px 5%;
+}
+
+nav ul{
+display:none;
+}
+
+.logo{
+font-size:24px;
+}
+
+.hero-content h1{
+font-size:45px;
+}
+
+.hero-content p{
+font-size:16px;
+}
+
+.hero-btns{
+flex-direction:column;
+align-items:center;
+}
+
+.btn{
+width:100%;
+max-width:300px;
+}
+
+.title h2{
+font-size:38px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.about-text{
+text-align:center;
+}
+
+.about-text h2{
+font-size:35px;
+}
+
+.slider,
+.slides img{
+height:280px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="bg">
+<div class="glow"></div>
+<div class="glow"></div>
+<div class="glow"></div>
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+Butterfly Luxury
+</div>
+
+<ul>
+<li><a href="#produk">Produk</a></li>
+<li><a href="#tentang">Tentang</a></li>
+<li><a href="#testimoni">Testimoni</a></li>
+<li><a href="#kontak">Kontak</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Luxury Handmade Bracelet
+</h1>
+
+<p>
+Handmade premium elegan dengan desain modern dan kualitas luxury terbaik.
+</p>
+
+<div class="hero-btns">
+
+<a href="#produk" class="btn btn-primary">
+Belanja Sekarang
+</a>
+
+<a href="#tentang" class="btn btn-glass">
+Tentang Kami
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PRODUK -->
+
+<section class="section" id="produk">
+
+<div class="title">
+<h2>Luxury Collection</h2>
+<p>Koleksi handmade premium terbaik</p>
+</div>
+
+<div class="search">
+<input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProduk()">
+</div>
+
+<div class="grid">
+
+<!-- PRODUCT -->
+
+<div class="card">
+
+<div class="badge">
+BEST SELLER
+</div>
+
+<div class="slider">
+
+<div class="slides">
+
+<img src="https://picsum.photos/600/600?random=1" onclick="openFull(this.src)">
+<img src="https://picsum.photos/600/600?random=2" onclick="openFull(this.src)">
+<img src="https://picsum.photos/600/600?random=3" onclick="openFull(this.src)">
+
+</div>
+
+<button class="prev">❮</button>
+<button class="next">❯</button>
+
+</div>
+
+<div class="card-body">
+
+<h3>Butterfly Glow</h3>
+
+<div class="price">
+Rp 50.000
+</div>
+
+<div class="desc">
+Gelang handmade glow premium dengan desain elegan modern.
+</div>
+
+<div class="rating">
+★★★★★
+</div>
+
+<input type="number" class="qty" value="1">
+
+<select>
+<option>JNE</option>
+<option>J&T</option>
+<option>SiCepat</option>
+</select>
+
+<button class="btn btn-primary" onclick="beli('Butterfly Glow',50000)">
+Beli Sekarang
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT -->
+
+<div class="card">
+
+<div class="badge">
+NEW
+</div>
+
+<div class="slider">
+
+<div class="slides">
+
+<img src="https://picsum.photos/600/600?random=4" onclick="openFull(this.src)">
+<img src="https://picsum.photos/600/600?random=5" onclick="openFull(this.src)">
+<img src="https://picsum.photos/600/600?random=6" onclick="openFull(this.src)">
+
+</div>
+
+<button class="prev">❮</button>
+<button class="next">❯</button>
+
+</div>
+
+<div class="card-body">
+
+<h3>Blue Crystal</h3>
+
+<div class="price">
+Rp 65.000
+</div>
+
+<div class="desc">
+Desain crystal luxury dengan nuansa glamor premium.
+</div>
+
+<div class="rating">
+★★★★★
+</div>
+
+<input type="number" class="qty" value="1">
+
+<select>
+<option>JNE</option>
+<option>J&T</option>
+<option>SiCepat</option>
+</select>
+
+<button class="btn btn-primary" onclick="beli('Blue Crystal',65000)">
+Beli Sekarang
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT -->
+
+<div class="card">
+
+<div class="badge">
+HOT
+</div>
+
+<div class="slider">
+
+<div class="slides">
+
+<img src="https://picsum.photos/600/600?random=7" onclick="openFull(this.src)">
+<img src="https://picsum.photos/600/600?random=8" onclick="openFull(this.src)">
+<img src="https://picsum.photos/600/600?random=9" onclick="openFull(this.src)">
+
+</div>
+
+<button class="prev">❮</button>
+<button class="next">❯</button>
+
+</div>
+
+<div class="card-body">
+
+<h3>Golden Shine</h3>
+
+<div class="price">
+Rp 75.000
+</div>
+
+<div class="desc">
+Perpaduan emas dan glow mewah untuk fashion modern.
+</div>
+
+<div class="rating">
+★★★★★
+</div>
+
+<input type="number" class="qty" value="1">
+
+<select>
+<option>JNE</option>
+<option>J&T</option>
+<option>SiCepat</option>
+</select>
+
+<button class="btn btn-primary" onclick="beli('Golden Shine',75000)">
+Beli Sekarang
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="tentang">
+
+<div class="about">
+
+<img src="https://picsum.photos/800/600?random=20">
+
+<div class="about-text">
+
+<h2>
+Luxury Handmade Brand
+</h2>
+
+<p>
+Butterfly Luxury Handmade menghadirkan produk handmade premium dengan desain elegan dan kualitas terbaik.
+</p>
+
+<br>
+
+<a href="#produk" class="btn btn-primary">
+Lihat Produk
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONI -->
+
+<section class="section" id="testimoni">
+
+<div class="title">
+<h2>Testimoni</h2>
+<p>Review pelanggan premium</p>
+</div>
+
+<div class="comment-form">
+
+<input type="text" id="nama" placeholder="Nama Anda">
+
+<textarea rows="5" id="pesan" placeholder="Tulis komentar..."></textarea>
+
+<button class="btn btn-primary" onclick="tambahKomentar()">
+Kirim Komentar
+</button>
+
+</div>
+
+<div class="testi-grid" id="komentarList">
+
+<div class="testi">
+<h4>Rina</h4>
+<div class="rating">★★★★★</div>
+<p>Produknya mewah banget ❤️</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="kontak">
+
+<div class="title">
+<h2>Hubungi Kami</h2>
+<p>Order cepat via WhatsApp</p>
+</div>
+
+<div class="contact">
+
+<div class="contact-box">
+
+<p>
+Klik tombol di bawah untuk order produk handmade premium.
+</p>
+
+<br>
+
+<a href="https://wa.me/628123456789" class="btn btn-primary">
+Chat WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FLOATING -->
+
+<div class="floating">
+<a href="https://wa.me/628123456789">
+✆
+</a>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Butterfly Luxury Handmade
+</footer>
+
+<!-- FULLSCREEN -->
+
+<div class="fullscreen" id="fullscreen">
+
+<span class="close" onclick="closeFull()">
+✕
+</span>
+
+<img id="fullImg">
+
+</div>
+
+<script>
+
+/* SEARCH */
+
+function searchProduk(){
+
+let input =
+document.getElementById('searchInput')
+.value.toLowerCase();
+
+let cards =
+document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+
+let text =
+card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(input)
+? 'block'
+: 'none';
+
+});
+
+}
+
+/* FULLSCREEN */
+
+function openFull(src){
+
+document.getElementById('fullscreen')
+.style.display='flex';
+
+document.getElementById('fullImg')
+.src=src;
+
+}
+
+function closeFull(){
+
+document.getElementById('fullscreen')
+.style.display='none';
+
+}
+
+/* BELI */
+
+function beli(nama,harga){
+
+let pesan =
+`Halo kak saya ingin membeli:
+
+Produk : ${nama}
+Harga : Rp ${harga}
+
+Apakah masih tersedia?`;
+
+window.open(
+"https://wa.me/628123456789?text="
++
+encodeURIComponent(pesan),
+'_blank'
+);
+
+}
+
+/* KOMENTAR */
+
+function tambahKomentar(){
+
+let nama =
+document.getElementById('nama').value;
+
+let pesan =
+document.getElementById('pesan').value;
+
+if(nama=='' || pesan==''){
+
+alert('Isi nama dan komentar');
+
+return;
+
+}
+
+let komentar =
+
+`
+<div class="testi">
+
+<h4>${nama}</h4>
+
+<div class="rating">
+★★★★★
+</div>
+
+<p>${pesan}</p>
+
+</div>
+`;
+
+document.getElementById('komentarList')
+.innerHTML += komentar;
+
+document.getElementById('nama').value='';
+document.getElementById('pesan').value='';
+
+}
+
+/* SLIDER */
+
+document.querySelectorAll('.slider').forEach(slider=>{
+
+const slides =
+slider.querySelector('.slides');
+
+const images =
+slider.querySelectorAll('img');
+
+const prev =
+slider.querySelector('.prev');
+
+const next =
+slider.querySelector('.next');
+
+let index = 0;
+
+function showSlide(){
+
+slides.style.transform =
+`translateX(-${index * 100}%)`;
+
+}
+
+next.onclick = ()=>{
+
+index++;
+
+if(index >= images.length){
+index = 0;
+}
+
+showSlide();
+
+}
+
+prev.onclick = ()=>{
+
+index--;
+
+if(index < 0){
+index = images.length - 1;
+}
+
+showSlide();
+
+}
+
+setInterval(()=>{
+
+index++;
+
+if(index >= images.length){
+index = 0;
+}
+
+showSlide();
+
+},3000);
+
+});
+
+</script>
+
+</body>
+</html>
