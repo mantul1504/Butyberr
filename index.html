@@ -1,526 +1,97 @@
-WEBSITE PREMIUM FULL — BUTTERFLY LUXURY (VERSI FIX & STABIL)
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Butterfly Luxury Handmade</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<title>Butterfly Store</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
 body{
-background:#050505;
+margin:0;
+font-family:Arial;
+background:#0b0b10;
 color:white;
-overflow-x:hidden;
 }
 
-/* BACKGROUND */
-
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-overflow:hidden;
-z-index:-1;
-}
-
-.glow{
-position:absolute;
-border-radius:50%;
-filter:blur(120px);
-opacity:0.25;
-animation:float 10s infinite ease-in-out;
-}
-
-.glow:nth-child(1){
-width:450px;
-height:450px;
-background:#00e5ff;
-top:-150px;
-left:-150px;
-}
-
-.glow:nth-child(2){
-width:400px;
-height:400px;
-background:#7b2cff;
-bottom:-150px;
-right:-150px;
-animation-delay:2s;
-}
-
-.glow:nth-child(3){
-width:350px;
-height:350px;
-background:#ff00cc;
-top:40%;
-left:40%;
-animation-delay:4s;
-}
-
-@keyframes float{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(30px);
-}
-}
-
-/* NAVBAR */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(15px);
-z-index:999;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.logo{
-font-size:30px;
-font-weight:800;
-background:linear-gradient(45deg,#00e5ff,#7b2cff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-nav ul{
-display:flex;
-gap:30px;
-list-style:none;
-}
-
-nav ul li a{
-color:white;
-text-decoration:none;
-transition:0.3s;
-}
-
-nav ul li a:hover{
-color:#00e5ff;
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+header{
+padding:15px;
 text-align:center;
-padding:120px 20px;
-}
-
-.hero-content{
-max-width:900px;
-}
-
-.hero-content h1{
-font-size:85px;
-font-weight:800;
-line-height:1.1;
-margin-bottom:25px;
-background:linear-gradient(45deg,#fff,#00e5ff,#7b2cff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.hero-content p{
-font-size:20px;
-line-height:1.8;
-color:#ccc;
-margin-bottom:35px;
-}
-
-.btn{
-padding:16px 35px;
-border:none;
-border-radius:60px;
-font-weight:700;
-cursor:pointer;
-transition:0.4s;
-display:inline-block;
-text-decoration:none;
-}
-
-.btn-primary{
 background:linear-gradient(45deg,#00e5ff,#7b2cff);
-color:white;
-box-shadow:0 0 30px #00e5ff55;
+font-weight:bold;
 }
 
-.btn-primary:hover{
-transform:translateY(-5px);
-}
-
-/* SECTION */
-
-.section{
-width:90%;
-margin:auto;
-padding:100px 0;
-}
-
-.title{
-text-align:center;
-margin-bottom:60px;
-}
-
-.title h2{
-font-size:55px;
-margin-bottom:15px;
-background:linear-gradient(45deg,#00e5ff,#7b2cff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.title p{
-color:#aaa;
-}
-
-/* SEARCH */
-
-.search{
-margin-bottom:40px;
-}
-
-.search input{
-width:100%;
-padding:18px;
-border:none;
-border-radius:18px;
-background:rgba(255,255,255,0.05);
-color:white;
-outline:none;
-}
-
-/* GRID */
-
-.grid{
+.container{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:10px;
+padding:10px;
 }
-
-/* CARD */
 
 .card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-border-radius:30px;
-overflow:hidden;
-backdrop-filter:blur(15px);
-transition:0.4s;
-position:relative;
+background:#161622;
+padding:10px;
+border-radius:10px;
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px #00e5ff44;
-}
-
-.badge{
-position:absolute;
-top:18px;
-left:18px;
-padding:10px 18px;
-border-radius:50px;
-font-size:12px;
-font-weight:bold;
-background:linear-gradient(45deg,#00e5ff,#7b2cff);
-z-index:10;
-}
-
-/* SLIDER */
-
-.slider{
-position:relative;
-overflow:hidden;
-height:330px;
-}
-
-.slides{
-display:flex;
-transition:0.5s;
-height:100%;
-}
-
-.slides img{
+button{
 width:100%;
-height:330px;
-object-fit:cover;
-flex-shrink:0;
-cursor:pointer;
-}
-
-.prev,
-.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-width:45px;
-height:45px;
+padding:8px;
 border:none;
-border-radius:50%;
-background:rgba(0,0,0,0.5);
-color:white;
-font-size:22px;
-cursor:pointer;
-}
-
-.prev{
-left:10px;
-}
-
-.next{
-right:10px;
-}
-
-/* CARD BODY */
-
-.card-body{
-padding:28px;
-}
-
-.card-body h3{
-font-size:28px;
-margin-bottom:10px;
-}
-
-.price{
-font-size:30px;
-font-weight:700;
-color:#00e5ff;
-margin-bottom:15px;
-}
-
-.desc{
-color:#ccc;
-line-height:1.8;
-margin-bottom:15px;
-}
-
-.rating{
-color:gold;
-margin-bottom:15px;
-}
-
-.qty,
-select,
-input,
-textarea{
-width:100%;
-padding:16px;
-border:none;
-border-radius:16px;
-background:rgba(255,255,255,0.05);
-color:white;
-outline:none;
-margin-bottom:15px;
-}
-
-/* TESTI */
-
-.testi-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.testi{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:25px;
-}
-
-/* CART */
-
-.cart-float{
-position:fixed;
-bottom:110px;
-right:20px;
-width:75px;
-height:75px;
+border-radius:8px;
 background:linear-gradient(45deg,#00e5ff,#7b2cff);
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
+color:white;
 cursor:pointer;
-z-index:9999;
 }
 
-#cart-count{
-position:absolute;
-top:-5px;
-right:-5px;
-background:red;
-width:28px;
-height:28px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:13px;
-font-weight:bold;
-}
-
-.cart-box{
+.cart-btn{
 position:fixed;
-top:0;
-right:-450px;
-width:420px;
-max-width:100%;
-height:100vh;
-background:#0d0d0d;
-z-index:99999;
-transition:0.5s;
-display:flex;
-flex-direction:column;
-border-left:1px solid rgba(255,255,255,0.08);
-}
-
-.cart-box.active{
-right:0;
-}
-
-.cart-header{
-padding:25px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.cart-items{
-flex:1;
-overflow:auto;
-padding:20px;
-}
-
-.cart-item{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:20px;
-margin-bottom:15px;
-}
-
-.cart-footer{
-padding:25px;
-border-top:1px solid rgba(255,255,255,0.08);
-}
-
-/* FLOAT WA */
-
-.floating{
-position:fixed;
-right:20px;
 bottom:20px;
-z-index:9999;
+right:20px;
+background:#7b2cff;
+padding:15px;
+border-radius:50%;
+cursor:pointer;
+font-size:20px;
 }
 
-.floating a{
-width:75px;
-height:75px;
-border-radius:50%;
-background:#25D366;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:35px;
-text-decoration:none;
+.cart{
+position:fixed;
+top:0;
+right:-100%;
+width:100%;
+height:100%;
+background:#0b0b10;
+padding:10px;
+transition:0.3s;
+overflow:auto;
+}
+
+.cart.active{right:0;}
+
+.item{
+background:#161622;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin:5px 0;
+border:none;
+border-radius:8px;
+background:#1c1c2a;
 color:white;
 }
 
-/* FULLSCREEN */
-
-.fullscreen{
-position:fixed;
-top:0;
-left:0;
+.checkout{
 width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999999;
-}
-
-.fullscreen img{
-max-width:90%;
-max-height:90%;
-border-radius:25px;
-}
-
-.close{
-position:absolute;
-top:20px;
-right:35px;
-font-size:45px;
-cursor:pointer;
-}
-
-/* FOOTER */
-
-footer{
-padding:40px;
-text-align:center;
-color:#888;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-nav ul{
-display:none;
-}
-
-.hero-content h1{
-font-size:48px;
-}
-
-.hero-content p{
-font-size:16px;
-}
-
-.title h2{
-font-size:38px;
-}
-
-.slider,
-.slides img{
-height:280px;
-}
-
-.cart-box{
-width:100%;
-}
-
+padding:10px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#00e5ff,#7b2cff);
+color:white;
 }
 
 </style>
@@ -528,793 +99,210 @@ width:100%;
 
 <body>
 
-<div class="bg">
-<div class="glow"></div>
-<div class="glow"></div>
-<div class="glow"></div>
-</div>
-
-<!-- NAVBAR -->
-
-<nav>
-
-<div class="logo">
-Butterfly Luxury
-</div>
-
-<ul>
-<li><a href="#produk">Produk</a></li>
-<li><a href="#testimoni">Testimoni</a></li>
-<li><a href="#kontak">Kontak</a></li>
-</ul>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-content">
-
-<h1>
-Luxury Handmade Bracelet
-</h1>
-
-<p>
-Handmade premium elegan modern dengan kualitas terbaik.
-</p>
-
-<a href="#produk" class="btn btn-primary">
-Belanja Sekarang
-</a>
-
-</div>
-
-</section>
+<header>🦋 Butterfly Store</header>
 
 <!-- PRODUK -->
+<div class="container">
 
-<section class="section" id="produk">
-
-<div class="title">
-<h2>Luxury Collection</h2>
-<p>Koleksi premium handmade terbaik</p>
+<div class="card">
+<h3>Glow Bracelet</h3>
+<p>Rp 50.000</p>
+<button onclick="add('Glow Bracelet',50000)">Tambah</button>
 </div>
 
-<div class="search">
-<input type="text" id="searchInput" placeholder="Cari produk..." onkeyup="searchProduk()">
+<div class="card">
+<h3>Blue Crystal</h3>
+<p>Rp 65.000</p>
+<button onclick="add('Blue Crystal',65000)">Tambah</button>
 </div>
 
-<div class="grid" id="productGrid"></div>
-
-</section>
-
-<!-- TESTIMONI -->
-
-<section class="section" id="testimoni">
-
-<div class="title">
-<h2>Testimoni</h2>
-<p>Review pelanggan premium</p>
+<div class="card">
+<h3>Elegant Charm</h3>
+<p>Rp 70.000</p>
+<button onclick="add('Elegant Charm',70000)">Tambah</button>
 </div>
 
-<input type="text" id="nama" placeholder="Nama Anda">
-
-<textarea rows="5" id="pesan" placeholder="Tulis komentar"></textarea>
-
-<button class="btn btn-primary" onclick="tambahKomentar()">
-Kirim Komentar
-</button>
-
-<br><br>
-
-<div class="testi-grid" id="komentarList">
-
-<div class="testi">
-<h4>Rina</h4>
-<div class="rating">★★★★★</div>
-<p>Produknya bagus banget ❤️</p>
+<div class="card">
+<h3>Luxury Butterfly</h3>
+<p>Rp 80.000</p>
+<button onclick="add('Luxury Butterfly',80000)">Tambah</button>
 </div>
 
-</div>
-
-</section>
-
-<!-- KONTAK -->
-
-<section class="section" id="kontak">
-
-<div class="title">
-<h2>Hubungi Kami</h2>
-<p>Order cepat via WhatsApp</p>
-</div>
-
-<center>
-
-<a href="https://wa.me/6282345577334" class="btn btn-primary">
-Chat WhatsApp
-</a>
-
-</center>
-
-</section>
-
-<!-- CART FLOAT -->
-
-<div class="cart-float" onclick="toggleCart()">
-🛒
-<span id="cart-count">0</span>
 </div>
 
 <!-- CART -->
+<div class="cart-btn" onclick="toggle()">🛒</div>
 
-<div class="cart-box" id="cartBox">
-
-<div class="cart-header">
+<div class="cart" id="cart">
 
 <h2>Keranjang</h2>
+<div id="list"></div>
 
-<span onclick="toggleCart()">
-✕
-</span>
+<input id="nama" placeholder="Nama Customer">
+<textarea id="alamat" placeholder="Alamat Customer"></textarea>
+<input id="wa" placeholder="No WhatsApp">
 
-</div>
-
-<div class="cart-items" id="cartItems">
-
-<p style="text-align:center;color:#888;">
-Keranjang kosong
-</p>
+<button class="checkout" onclick="checkout()">Checkout</button>
 
 </div>
-
-<div class="cart-footer">
-
-<h3>
-Total :
-<span id="grandTotal">
-Rp 0
-</span>
-</h3>
-
-<br>
-
-<input type="text" id="customerName" placeholder="Nama Lengkap">
-
-<textarea rows="4" id="customerAddress" placeholder="Alamat Lengkap"></textarea>
-
-<button class="btn btn-primary" onclick="checkoutCart()">
-Download Invoice
-</button>
-
-</div>
-
-</div>
-
-<!-- FULLSCREEN -->
-
-<div class="fullscreen" id="fullscreen">
-
-<span class="close" onclick="closeFull()">
-✕
-</span>
-
-<img id="fullImg">
-
-</div>
-
-<!-- FLOAT WA -->
-
-<div class="floating">
-
-<a href="https://wa.me/6282345577334">
-✆
-</a>
-
-</div>
-
-<!-- TEMPLATE INVOICE -->
-
-<div id="invoiceTemplate" style="position:absolute;left:-9999px;top:0;">
-
-<div id="invoiceBox"
-style="
-width:800px;
-background:white;
-padding:40px;
-color:black;
-border-radius:20px;
-font-family:Poppins;
-">
-
-<h1 style="color:#7b2cff;">
-Butterfly Luxury
-</h1>
-
-<hr><br>
-
-<h2>
-INVOICE ORDER
-</h2>
-
-<p id="invNumber"></p>
-
-<p id="invDate"></p>
-
-<br>
-
-<h3>Customer</h3>
-
-<p id="invName"></p>
-
-<p id="invAddress"></p>
-
-<br>
-
-<div id="invItems"></div>
-
-<br><hr><br>
-
-<h2 id="invTotal"></h2>
-
-<br>
-
-<h3>Pembayaran</h3>
-
-<p>BANK BCA</p>
-<p>1234567890</p>
-<p>A/N TEDY IRWANSYAH</p>
-
-<br>
-
-<p>
-Terima kasih telah berbelanja ❤️
-</p>
-
-</div>
-
-</div>
-
-<footer>
-© 2026 Butterfly Luxury Handmade
-</footer>
 
 <script>
 
-/* PRODUK */
+let cart=[];
 
-const products = [
-
-{
-nama:'Butterfly Glow',
-harga:50000,
-badge:'BEST SELLER',
-gambar:[
-'https://picsum.photos/600/600?random=1',
-'https://picsum.photos/600/600?random=2',
-'https://picsum.photos/600/600?random=3'
-],
-desc:'Luxury bracelet handmade glow premium.'
-},
-
-{
-nama:'Blue Crystal',
-harga:65000,
-badge:'HOT',
-gambar:[
-'https://picsum.photos/600/600?random=4',
-'https://picsum.photos/600/600?random=5',
-'https://picsum.photos/600/600?random=6'
-],
-desc:'Crystal luxury premium modern.'
-},
-
-{
-nama:'Pink Sakura',
-harga:75000,
-badge:'NEW',
-gambar:[
-'https://picsum.photos/600/600?random=7',
-'https://picsum.photos/600/600?random=8',
-'https://picsum.photos/600/600?random=9'
-],
-desc:'Elegant handmade pink edition.'
-},
-
-{
-nama:'Midnight Blue',
-harga:90000,
-badge:'PREMIUM',
-gambar:[
-'https://picsum.photos/600/600?random=10',
-'https://picsum.photos/600/600?random=11',
-'https://picsum.photos/600/600?random=12'
-],
-desc:'Luxury midnight crystal bracelet.'
+function add(nama,harga){
+let e=cart.find(i=>i.nama===nama);
+if(e){e.qty++;}
+else{cart.push({nama,harga,qty:1});}
+render();
 }
 
-];
-
-/* RUPIAH */
-
-function rupiah(angka){
-return 'Rp ' + angka.toLocaleString('id-ID');
+function render(){
+let html="";
+cart.forEach(i=>{
+html+=`
+<div class="item">
+<b>${i.nama}</b><br>
+Qty: ${i.qty}<br>
+Rp ${i.harga*i.qty}
+</div>`;
+});
+document.getElementById("list").innerHTML=html;
 }
 
-/* RENDER PRODUK */
+function toggle(){
+document.getElementById("cart").classList.toggle("active");
+}
 
-function renderProducts(){
+/* ========================= */
+/* INVOICE FINAL PERFECT */
+/* ========================= */
+function makeInvoice(order){
 
-let html='';
+let c=document.createElement("canvas");
+let ctx=c.getContext("2d");
 
-products.forEach((p,index)=>{
+c.width=650;
+c.height=950;
 
-html += `
-<div class="card">
+/* BACKGROUND */
+ctx.fillStyle="#f5f7ff";
+ctx.fillRect(0,0,c.width,c.height);
 
-<div class="badge">
-${p.badge}
-</div>
+/* HEADER */
+ctx.fillStyle="#7b2cff";
+ctx.fillRect(0,0,650,80);
 
-<div class="slider">
+ctx.fillStyle="#fff";
+ctx.font="bold 18px Arial";
+ctx.fillText("BUTTERFLY INVOICE",200,50);
 
-<div class="slides">
+/* CUSTOMER */
+ctx.fillStyle="#111";
+ctx.font="14px Arial";
 
-${p.gambar.map(img=>`
-<img src="${img}" onclick="openFull('${img}')">
-`).join('')}
+ctx.fillText("INV: "+order.id,30,110);
+ctx.fillText("Nama: "+order.nama,30,130);
+ctx.fillText("Alamat: "+order.alamat,30,150);
+ctx.fillText("WA: "+order.wa,30,170);
 
-</div>
+/* REKENING */
+ctx.font="bold 14px Arial";
+ctx.fillText("A/N: BUTTERFLY STORE",380,110);
+ctx.fillText("BANK BCA: 1234567890",380,130);
+ctx.fillText("HUB: 082345577334",380,150);
 
-<button class="prev">❮</button>
-<button class="next">❯</button>
+/* GARIS */
+ctx.fillStyle="#000";
+ctx.fillRect(30,200,590,2);
 
-</div>
+/* HEADER TABLE */
+ctx.fillStyle="#111";
+ctx.font="bold 14px Arial";
 
-<div class="card-body">
+ctx.fillText("NAMA",30,230);
+ctx.fillText("HARGA",250,230);
+ctx.fillText("QTY",380,230);
+ctx.fillText("TOTAL",500,230);
 
-<h3>${p.nama}</h3>
+/* ITEMS */
+let y=270;
+let total=0;
 
-<div class="price">
-${rupiah(p.harga)}
-</div>
+ctx.font="14px Arial";
 
-<div class="desc">
-${p.desc}
-</div>
+order.items.forEach(i=>{
 
-<div class="rating">
-★★★★★
-</div>
+let sub=i.harga*i.qty;
+total+=sub;
 
-<input type="number" class="qty" id="qty${index}" value="1" min="1">
+/* NAMA */
+ctx.fillText(i.nama,30,y);
 
-<select id="kurir${index}">
-<option value="10000">JNE - Rp 10.000</option>
-<option value="12000">J&T - Rp 12.000</option>
-<option value="15000">SiCepat - Rp 15.000</option>
-</select>
+/* HARGA SATUAN (KIRI QTY) */
+ctx.fillText("Rp "+i.harga,250,y);
 
-<button class="btn btn-primary"
-onclick="addToCart('${p.nama}',${p.harga},'qty${index}','kurir${index}')">
-Tambah Ke Keranjang
-</button>
+/* QTY */
+ctx.fillText("x"+i.qty,380,y);
 
-</div>
+/* TOTAL ITEM */
+ctx.fillText("Rp "+sub,500,y);
 
-</div>
-`;
+y+=30;
 
 });
 
-document.getElementById('productGrid')
-.innerHTML = html;
+/* GARIS */
+ctx.fillStyle="#7b2cff";
+ctx.fillRect(30,y+10,590,2);
 
-initSlider();
+/* TOTAL AKHIR */
+ctx.fillStyle="#111";
+ctx.font="bold 18px Arial";
+ctx.fillText("TOTAL: Rp "+total,430,y+60);
 
-}
-
-/* SEARCH */
-
-function searchProduk(){
-
-let input =
-document.getElementById('searchInput')
-.value.toLowerCase();
-
-document.querySelectorAll('.card')
-.forEach(card=>{
-
-card.style.display =
-card.innerText.toLowerCase()
-.includes(input)
-? 'block'
-: 'none';
-
-});
-
-}
-
-/* CART */
-
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-function saveCart(){
-localStorage.setItem('cart',JSON.stringify(cart));
-}
-
-function toggleCart(){
-
-document.getElementById('cartBox')
-.classList.toggle('active');
-
-}
-
-function addToCart(nama,harga,qtyId,kurirId){
-
-let qty =
-parseInt(document.getElementById(qtyId).value);
-
-let ongkir =
-parseInt(document.getElementById(kurirId).value);
-
-let kurir =
-document.getElementById(kurirId)
-.options[
-document.getElementById(kurirId)
-.selectedIndex
-].text;
-
-let subtotal =
-harga * qty;
-
-let total =
-subtotal + ongkir;
-
-cart.push({
-nama,
-qty,
-kurir,
-subtotal,
-ongkir,
-total
-});
-
-saveCart();
-
-renderCart();
-
-alert('Produk berhasil ditambahkan');
-
-}
-
-/* RENDER CART */
-
-function renderCart(){
-
-let cartItems =
-document.getElementById('cartItems');
-
-let totalBelanja = 0;
-
-if(cart.length < 1){
-
-cartItems.innerHTML =
-'<p style="text-align:center;color:#888;">Keranjang kosong</p>';
-
-document.getElementById('grandTotal')
-.innerHTML='Rp 0';
-
-document.getElementById('cart-count')
-.innerHTML=0;
-
-return;
-
-}
-
-cartItems.innerHTML='';
-
-cart.forEach((item,index)=>{
-
-totalBelanja += item.total;
-
-cartItems.innerHTML +=
-
-`
-<div class="cart-item">
-
-<h4>${item.nama}</h4>
-
-<p>Jumlah : ${item.qty}</p>
-
-<p>${item.kurir}</p>
-
-<p>Subtotal : ${rupiah(item.subtotal)}</p>
-
-<p>Ongkir : ${rupiah(item.ongkir)}</p>
-
-<h3>${rupiah(item.total)}</h3>
-
-<br>
-
-<button class="btn btn-primary"
-onclick="hapusCart(${index})">
-Hapus
-</button>
-
-</div>
-`;
-
-});
-
-document.getElementById('grandTotal')
-.innerHTML =
-rupiah(totalBelanja);
-
-document.getElementById('cart-count')
-.innerHTML =
-cart.length;
-
-}
-
-/* HAPUS */
-
-function hapusCart(index){
-
-cart.splice(index,1);
-
-saveCart();
-
-renderCart();
+return c.toDataURL("image/png");
 
 }
 
 /* CHECKOUT */
+function checkout(){
 
-async function checkoutCart(){
+let nama=document.getElementById("nama").value;
+let alamat=document.getElementById("alamat").value;
+let wa=document.getElementById("wa").value;
 
-if(cart.length < 1){
-alert('Keranjang kosong');
+if(!nama||!alamat||!wa){
+alert("Lengkapi data");
 return;
 }
 
-let nama =
-document.getElementById('customerName').value;
+let order={
+id:"INV-"+Math.floor(Math.random()*999999),
+nama,
+alamat,
+wa,
+items:cart
+};
 
-let alamat =
-document.getElementById('customerAddress').value;
+let img=makeInvoice(order);
 
-if(nama=='' || alamat==''){
-alert('Isi nama dan alamat');
-return;
-}
+/* DOWNLOAD */
+let a=document.createElement("a");
+a.href=img;
+a.download=order.id+".png";
+a.click();
 
-let nomor =
-Math.floor(Math.random()*999999);
-
-let tanggal =
-new Date().toLocaleDateString('id-ID');
-
-document.getElementById('invNumber')
-.innerHTML =
-'Invoice : INV-' + nomor;
-
-document.getElementById('invDate')
-.innerHTML =
-'Tanggal : ' + tanggal;
-
-document.getElementById('invName')
-.innerHTML =
-'Nama : ' + nama;
-
-document.getElementById('invAddress')
-.innerHTML =
-'Alamat : ' + alamat;
-
-let items='';
-
-let totalBelanja = 0;
-
-cart.forEach(item=>{
-
-items +=
-`
-<div style="
-padding:15px;
-background:#f3f3f3;
-margin-bottom:15px;
-border-radius:12px;
-">
-
-<h3>${item.nama}</h3>
-
-<p>Jumlah : ${item.qty}</p>
-
-<p>${item.kurir}</p>
-
-<p>Subtotal : ${rupiah(item.subtotal)}</p>
-
-<p>Ongkir : ${rupiah(item.ongkir)}</p>
-
-<h2>Total : ${rupiah(item.total)}</h2>
-
-</div>
-`;
-
-totalBelanja += item.total;
-
-});
-
-document.getElementById('invItems')
-.innerHTML = items;
-
-document.getElementById('invTotal')
-.innerHTML =
-'Grand Total : ' + rupiah(totalBelanja);
-
-await new Promise(resolve=>setTimeout(resolve,500));
-
-const canvas =
-await html2canvas(
-document.getElementById('invoiceBox'),
-{
-scale:2
-}
-);
-
-const image =
-canvas.toDataURL('image/png');
-
-const link =
-document.createElement('a');
-
-link.href = image;
-
-link.download =
-'Invoice-Butterfly-Luxury.png';
-
-document.body.appendChild(link);
-
-link.click();
-
-document.body.removeChild(link);
-
+/* WA */
 window.open(
-'https://wa.me/6282345577334?text=Halo%20kak%20saya%20sudah%20checkout%20pesanan',
-'_blank'
+"https://wa.me/628234557334?text="+
+encodeURIComponent("Order "+order.id+" atas nama "+nama)
 );
 
-}
-
-/* TESTI */
-
-function tambahKomentar(){
-
-let nama =
-document.getElementById('nama').value;
-
-let pesan =
-document.getElementById('pesan').value;
-
-if(nama=='' || pesan==''){
-alert('Isi nama dan komentar');
-return;
-}
-
-document.getElementById('komentarList')
-.innerHTML +=
-
-`
-<div class="testi">
-
-<h4>${nama}</h4>
-
-<div class="rating">
-★★★★★
-</div>
-
-<p>${pesan}</p>
-
-</div>
-`;
-
-document.getElementById('nama').value='';
-document.getElementById('pesan').value='';
+cart=[];
+render();
 
 }
-
-/* FULLSCREEN */
-
-function openFull(src){
-
-document.getElementById('fullscreen')
-.style.display='flex';
-
-document.getElementById('fullImg')
-.src=src;
-
-}
-
-function closeFull(){
-
-document.getElementById('fullscreen')
-.style.display='none';
-
-}
-
-/* SLIDER */
-
-function initSlider(){
-
-document.querySelectorAll('.slider')
-.forEach(slider=>{
-
-const slides =
-slider.querySelector('.slides');
-
-const images =
-slider.querySelectorAll('img');
-
-const prev =
-slider.querySelector('.prev');
-
-const next =
-slider.querySelector('.next');
-
-let index = 0;
-
-function showSlide(){
-
-slides.style.transform =
-`translateX(-${index * 100}%)`;
-
-}
-
-next.onclick = ()=>{
-
-index++;
-
-if(index >= images.length){
-index = 0;
-}
-
-showSlide();
-
-}
-
-prev.onclick = ()=>{
-
-index--;
-
-if(index < 0){
-index = images.length - 1;
-}
-
-showSlide();
-
-}
-
-setInterval(()=>{
-
-index++;
-
-if(index >= images.length){
-index = 0;
-}
-
-showSlide();
-
-},3000);
-
-});
-
-}
-
-/* INIT */
-
-renderProducts();
-
-renderCart();
 
 </script>
 
