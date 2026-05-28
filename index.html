@@ -20,6 +20,7 @@ background:linear-gradient(45deg,#00e5ff,#7b2cff);
 font-weight:bold;
 }
 
+/* PRODUK */
 .container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -43,6 +44,7 @@ color:white;
 cursor:pointer;
 }
 
+/* CART BUTTON */
 .cart-btn{
 position:fixed;
 bottom:20px;
@@ -54,6 +56,18 @@ cursor:pointer;
 font-size:20px;
 }
 
+.badge{
+position:absolute;
+top:-5px;
+right:-5px;
+background:red;
+color:white;
+font-size:12px;
+padding:3px 6px;
+border-radius:50%;
+}
+
+/* CART */
 .cart{
 position:fixed;
 top:0;
@@ -75,7 +89,8 @@ margin-bottom:10px;
 border-radius:10px;
 }
 
-input,textarea{
+/* INPUT */
+input,textarea,select{
 width:100%;
 padding:10px;
 margin:5px 0;
@@ -94,6 +109,17 @@ background:linear-gradient(45deg,#00e5ff,#7b2cff);
 color:white;
 }
 
+.small-btn{
+width:auto;
+padding:5px 10px;
+margin:2px;
+}
+
+.flex{
+display:flex;
+gap:5px;
+align-items:center;
+}
 </style>
 </head>
 
@@ -130,19 +156,34 @@ color:white;
 
 </div>
 
-<!-- CART -->
-<div class="cart-btn" onclick="toggle()">🛒</div>
+<!-- CART BUTTON -->
+<div class="cart-btn" onclick="toggle()">
+🛒
+<span class="badge" id="badge">0</span>
+</div>
 
+<!-- CART -->
 <div class="cart" id="cart">
 
 <h2>Keranjang</h2>
 <div id="list"></div>
 
-<input id="nama" placeholder="Nama Customer">
-<textarea id="alamat" placeholder="Alamat Customer"></textarea>
+<h3>Data Customer</h3>
+
+<input id="nama" placeholder="Nama">
+<textarea id="alamat" placeholder="Alamat"></textarea>
 <input id="wa" placeholder="No WhatsApp">
 
-<button class="checkout" onclick="checkout()">Checkout</button>
+<select id="kota" onchange="render()">
+<option value="10000">Palembang (10.000)</option>
+<option value="20000">Jakarta (20.000)</option>
+<option value="25000">Bandung (25.000)</option>
+<option value="30000">Luar Kota (30.000)</option>
+</select>
+
+<h3 id="total"></h3>
+
+<button class="checkout" onclick="checkout()">Checkout WhatsApp</button>
 
 </div>
 
@@ -152,156 +193,138 @@ let cart=[];
 
 function add(nama,harga){
 let e=cart.find(i=>i.nama===nama);
-if(e){e.qty++;}
-else{cart.push({nama,harga,qty:1});}
+if(e) e.qty++;
+else cart.push({nama,harga,qty:1});
+render();
+}
+
+function plus(nama){
+cart.find(i=>i.nama===nama).qty++;
+render();
+}
+
+function minus(nama){
+let i=cart.find(i=>i.nama===nama);
+i.qty--;
+if(i.qty<=0) cart=cart.filter(x=>x.nama!==nama);
 render();
 }
 
 function render(){
+
 let html="";
+let total=0;
+let qtyAll=0;
+
 cart.forEach(i=>{
+let sub=i.harga*i.qty;
+total+=sub;
+qtyAll+=i.qty;
+
 html+=`
 <div class="item">
 <b>${i.nama}</b><br>
-Qty: ${i.qty}<br>
-Rp ${i.harga*i.qty}
+Rp ${i.harga} x ${i.qty} = Rp ${sub}<br>
+
+<div class="flex">
+<button class="small-btn" onclick="minus('${i.nama}')">-</button>
+<button class="small-btn" onclick="plus('${i.nama}')">+</button>
+</div>
+
 </div>`;
 });
+
 document.getElementById("list").innerHTML=html;
+document.getElementById("badge").innerText=qtyAll;
+
+let ongkir=parseInt(document.getElementById("kota").value);
+document.getElementById("total").innerText="Total + Ongkir: Rp "+(total+ongkir);
 }
 
 function toggle(){
 document.getElementById("cart").classList.toggle("active");
 }
 
-/* ========================= */
-/* INVOICE FINAL PERFECT */
-/* ========================= */
+/* INVOICE */
 function makeInvoice(order){
 
 let c=document.createElement("canvas");
 let ctx=c.getContext("2d");
 
 c.width=650;
-c.height=950;
+c.height=900;
 
-/* BACKGROUND */
-ctx.fillStyle="#f5f7ff";
+ctx.fillStyle="#fff";
 ctx.fillRect(0,0,c.width,c.height);
 
-/* HEADER */
 ctx.fillStyle="#7b2cff";
-ctx.fillRect(0,0,650,80);
+ctx.fillRect(0,0,650,70);
 
 ctx.fillStyle="#fff";
 ctx.font="bold 18px Arial";
-ctx.fillText("BUTTERFLY INVOICE",200,50);
+ctx.fillText("INVOICE BUTTERFLY STORE",140,40);
 
-/* CUSTOMER */
-ctx.fillStyle="#111";
+ctx.fillStyle="#000";
 ctx.font="14px Arial";
 
 ctx.fillText("INV: "+order.id,30,110);
 ctx.fillText("Nama: "+order.nama,30,130);
 ctx.fillText("Alamat: "+order.alamat,30,150);
-ctx.fillText("WA: "+order.wa,30,170);
 
-/* REKENING */
-ctx.font="bold 14px Arial";
-ctx.fillText("A/N: BUTTERFLY STORE",380,110);
-ctx.fillText("BANK BCA: 1234567890",380,130);
-ctx.fillText("HUB: 082345577334",380,150);
-
-/* GARIS */
-ctx.fillStyle="#000";
-ctx.fillRect(30,200,590,2);
-
-/* HEADER TABLE */
-ctx.fillStyle="#111";
-ctx.font="bold 14px Arial";
-
-ctx.fillText("NAMA",30,230);
-ctx.fillText("HARGA",250,230);
-ctx.fillText("QTY",380,230);
-ctx.fillText("TOTAL",500,230);
-
-/* ITEMS */
-let y=270;
+let y=200;
 let total=0;
 
-ctx.font="14px Arial";
-
 order.items.forEach(i=>{
-
 let sub=i.harga*i.qty;
 total+=sub;
-
-/* NAMA */
-ctx.fillText(i.nama,30,y);
-
-/* HARGA SATUAN (KIRI QTY) */
-ctx.fillText("Rp "+i.harga,250,y);
-
-/* QTY */
-ctx.fillText("x"+i.qty,380,y);
-
-/* TOTAL ITEM */
-ctx.fillText("Rp "+sub,500,y);
-
-y+=30;
-
+ctx.fillText(i.nama+" x"+i.qty+" = Rp "+sub,30,y);
+y+=25;
 });
 
-/* GARIS */
-ctx.fillStyle="#7b2cff";
-ctx.fillRect(30,y+10,590,2);
+ctx.fillText("TOTAL: Rp "+total,30,y+40);
+ctx.fillText("ONGKIR: Rp "+order.ongkir,30,y+70);
+ctx.fillText("GRAND TOTAL: Rp "+(total+order.ongkir),30,y+100);
 
-/* TOTAL AKHIR */
-ctx.fillStyle="#111";
-ctx.font="bold 18px Arial";
-ctx.fillText("TOTAL: Rp "+total,430,y+60);
-
-return c.toDataURL("image/png");
-
+return c.toDataURL();
 }
 
 /* CHECKOUT */
 function checkout(){
 
+if(cart.length===0) return alert("Keranjang kosong");
+
 let nama=document.getElementById("nama").value;
 let alamat=document.getElementById("alamat").value;
 let wa=document.getElementById("wa").value;
 
-if(!nama||!alamat||!wa){
-alert("Lengkapi data");
-return;
-}
+if(!nama||!alamat||!wa) return alert("Lengkapi data");
+
+let ongkir=parseInt(document.getElementById("kota").value);
 
 let order={
-id:"INV-"+Math.floor(Math.random()*999999),
-nama,
-alamat,
-wa,
-items:cart
+id:"INV"+Date.now(),
+nama,alamat,wa,
+items:cart,
+ongkir
 };
 
 let img=makeInvoice(order);
 
-/* DOWNLOAD */
+/* download invoice */
 let a=document.createElement("a");
 a.href=img;
 a.download=order.id+".png";
 a.click();
 
-/* WA */
-window.open(
-"https://wa.me/628234557334?text="+
-encodeURIComponent("Order "+order.id+" atas nama "+nama)
-);
+/* whatsapp */
+let msg="Order "+order.id+
+"\nNama: "+nama+
+"\nTotal + ongkir sudah dihitung";
+
+window.open("https://wa.me/62"+wa.replace(/^0/,'')+"?text="+encodeURIComponent(msg));
 
 cart=[];
 render();
-
 }
 
 </script>
